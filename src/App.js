@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+
+import { useState } from "react";
 
 function App() {
+  const [message, setMessage] = useState("");
+  const msgs = [
+    "LOLOLOLOLOLOL NO!",
+    "YOU FELL FOR THE CORNY JOKE",
+    "GTFO AINT NO STAKING",
+    "YOU GOT CORNED!",
+    "ARRESTED.",
+  ];
+
+  function doShit() {
+    setMessage(msgs[Math.floor(Math.random() * msgs.length)]);
+  }
+  console.log(Math.random() * msgs.length);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1
+        style={{
+          fontSize: "80px",
+          color: "white",
+          margin: "20px",
+          textAlign: "center",
+        }}
+      >
+        {message}
+      </h1>
+      <button className="button" onClick={doShit}>
+        STAKE WITH CORN
+      </button>
     </div>
   );
 }
